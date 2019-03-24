@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    display: block;
+}
+
+nav {
+    display: block;
+}
+
+ul {
+    list-style-type: none;
+    margin: auto;
+    margin-top: 15px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: block;
+}
+
+li {
+    float: left;
+    width: 25%;
+    border-right: 1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.main ul {
+    background-color: white;
+}
+
+.main li {
+    width: 50%;
+    border: none;
+    text-align: center;
+}
+
+.main li button {
+    width: 100%;
+    margin: 1px;
+}
+
+.main input {
+    font-size: 16px;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: rgb(68, 159, 212);
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+    font-size: 16px;
+    width:33.33%;
+}
+
+select {
+    display: block;
+    width: 75%;
+    margin: auto;
+    line-height: 20px;
+    font-size:16px;
+}
+
+tr:hover {
+    background-color: #bbb;
+}
+
+td img {
+    height: 20px;
+}
+
+h1 {
+    display: block;
+    text-align: center;
+}
+
+form h1 {
+    display: inline-block;
+}
+
+button {
+    background-color: rgb(68, 159, 212);
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: auto;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.AlarmInput {
+    width: 80px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.firstRow {
+    background-color: rgb(220, 234, 255);
+}
+
+.firstRow:hover {
+    background-color: rgb(220, 234, 255);
+    opacity: 1.0;
+}

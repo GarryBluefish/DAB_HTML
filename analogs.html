@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <title>DAB Information - Analogs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+</body>
+<div class="header">
+    <img src="images/LSPI_Logo.png">
+</div>
+<div class="nav">
+    <ul>
+        <li><a href="index.html">Main</a></li>
+        <li><a href="discretes.html">Discretes</a></li>
+        <li><a href="analogs.html" class="active">Analogs</a></li>
+        <li><a href="config.html">Config</a></li>
+    </ul>
+</div>
+<div class="main">
+    <form method="post" action="">
+        <ul>
+            <li><button type="submit">Submit<br>Changes</button></li>
+            <li><h1>Analogs</h1></li>
+        </ul>
+        <table>
+            <tr class="firstRow">
+                <td>
+                    <h1>LIT-401<br>Tank Level</h1>
+                </td>
+                <td><b>Enabled?</b><br><input type="checkbox" name="cbx_lshhh401" value="cbx_lshhh401_EN"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>4mA Scale</th>
+                <th>20mA Scale</th>
+                <th>Units</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1350</td>
+                <td>gal</td>
+
+            </tr>
+            <tr>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.LIT-401.min" value="0">
+                </td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.LIT-401.max"
+                        value="1350"></td>
+                <td>gal</td>
+            </tr>
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Alarm SP</th>
+                <th>Current SP (Gal)</th>
+                <th>New SP (Gal)</th>
+                <th>Enabled?</th>
+            </tr>
+            <tr>
+                <td>HHH</td>
+                <td>1300</td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" value="1300"></td>
+                <td><input type="checkbox" name="cbx_lshhh401" value="cbx_lshhh401_EN"></td>
+            </tr>
+            <tr>
+                <td>LL</td>
+                <td>500</td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" value="500"></td>
+                <td><input type="checkbox" name="cbx_lsll401" value="cbx_lsll401_EN"></td>
+            </tr>
+            <tr>
+                <td>LLL</td>
+                <td>150</td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" value="100"></td>
+                <td><input type="checkbox" name="cbx_lslll401" value="cbx_lslll401_EN"></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr class="firstRow">
+                <td>
+                    <h1>FIT-102<br>Flow Rate</h1>
+                </td>
+                <td><b>Enabled?</b><br><input type="checkbox" name="cbx_fit102" value="cbx_fit102_EN"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>4mA Scale</th>
+                <th>20mA Scale</th>
+                <th>Units</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>60</td>
+                <td>gph</td>
+
+            </tr>
+            <tr>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.FIT-102.min" value="0">
+                </td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.FIT-102.max" value="60">
+                </td>
+                <td>gph</td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div class="footer"></div>
+
+</html>
