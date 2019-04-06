@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    padding:0;
+    margin:0;
 }
 
 @media only screen and (min-width: 768px) {
@@ -13,11 +15,11 @@ img {
     display: block;
 }
 
-nav {
+.nav {
     display: block;
 }
 
-ul {
+.nav ul {
     list-style-type: none;
     margin: auto;
     margin-top: 15px;
@@ -27,7 +29,7 @@ ul {
     display: block;
 }
 
-li {
+.nav li {
     float: left;
     width: 25%;
     border-right: 1px solid #bbb;
@@ -81,9 +83,8 @@ th,
 td {
     border-bottom: 1px solid #ddd;
     text-align: center;
-    padding: 8px;
-    font-size: 16px;
-    width:33.33%;
+    font-size: 30px;
+    display:block;
 }
 
 select {
