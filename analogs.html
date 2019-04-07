@@ -20,25 +20,29 @@
     <ul>
         <li><a href="index.html">Main</a></li>
         <li><a href="discretes.html">Discretes</a></li>
-        <li><a href="analogs.html" class="active">Analogs</a></li>
+        <li><a href="analogs.html" class="active">Analog</a></li>
         <li><a href="config.html">Config</a></li>
     </ul>
 </div>
 <div class="main">
-    <form method="post" action="">
+    <form method="post">
         <ul>
             <li><button type="submit">Submit<br>Changes</button></li>
-            <li><h1>Analogs</h1></li>
+            <li>
+                <h1>Alarms &<br>Config</h1>
+            </li>
         </ul>
+        <br>
         <table>
             <tr class="firstRow">
                 <td>
                     <h1>LIT-401<br>Tank Level</h1>
                 </td>
-                <td><b>Enabled?</b><br><input type="checkbox" name="cbx_lshhh401" value="cbx_lshhh401_EN"></td>
+                <td><b>Device<br>Connected?</b><br><input type="checkbox" name="cbx_lshhh401" value="cbx_lshhh401_EN">
+                </td>
             </tr>
         </table>
-        <table>
+        <table class="col3">
             <tr>
                 <th>4mA Scale</th>
                 <th>20mA Scale</th>
@@ -59,7 +63,7 @@
             </tr>
         </table>
         <br>
-        <table>
+        <table class="col4">
             <tr>
                 <th>Alarm SP</th>
                 <th>Current SP (Gal)</th>
@@ -91,7 +95,7 @@
                 <td>
                     <h1>FIT-102<br>Flow Rate</h1>
                 </td>
-                <td><b>Enabled?</b><br><input type="checkbox" name="cbx_fit102" value="cbx_fit102_EN"></td>
+                <td><b>Device<br>Connected?</b><br><input type="checkbox" name="cbx_fit102" value="cbx_fit102_EN"></td>
             </tr>
         </table>
         <table>
@@ -112,6 +116,348 @@
                 <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.FIT-102.max" value="60">
                 </td>
                 <td>gph</td>
+            </tr>
+        </table>
+        <table>
+            <tr class="firstRow">
+                <td>
+                    <h1>FIT-202<br>Flow Rate</h1>
+                </td>
+                <td><b>Device<br>Connected?</b><br><input type="checkbox" name="cbx_fit202" value="cbx_fit202_EN"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>4mA Scale</th>
+                <th>20mA Scale</th>
+                <th>Units</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>60</td>
+                <td>gph</td>
+
+            </tr>
+            <tr>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.FIT-202.min" value="0">
+                </td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.FIT-202.max" value="60">
+                </td>
+                <td>gph</td>
+            </tr>
+        </table>
+        <table>
+            <tr class="firstRow">
+                <td>
+                    <h1>QC-102<br>VFD Speed</h1>
+                </td>
+                <td><b>Device<br>Connected?</b><br><input type="checkbox" name="cbx_qc102" value="cbx_qc102_EN"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>4mA Scale</th>
+                <th>20mA Scale</th>
+                <th>Units</th>
+            </tr>
+            <tr>
+                <td>360</td>
+                <td>1750</td>
+                <td>rpm</td>
+
+            </tr>
+            <tr>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.QC-102.min" value="360">
+                </td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.QC-102.max"
+                        value="1750">
+                </td>
+                <td>rpm</td>
+            </tr>
+        </table>
+        <table>
+            <tr class="firstRow">
+                <td>
+                    <h1>QC-202<br>VFD Speed</h1>
+                </td>
+                <td><b>Device<br>Connected?</b><br><input type="checkbox" name="cbx_qc202" value="cbx_qc202_EN"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>4mA Scale</th>
+                <th>20mA Scale</th>
+                <th>Units</th>
+            </tr>
+            <tr>
+                <td>360</td>
+                <td>1750</td>
+                <td>rpm</td>
+
+            </tr>
+            <tr>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.QC-202.min" value="360">
+                </td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.QC-202.max"
+                        value="1750">
+                </td>
+                <td>rpm</td>
+            </tr>
+        </table>
+        <table>
+            <tr class="firstRow">
+                <td>
+                    <h1>PT-101<br>Feed Pump<br>Pressure Transmitter</h1>
+                </td>
+                <td><b>Device<br>Connected?</b><br><input type="checkbox" name="cbx_pt101" value="cbx_pt101_EN"></td>
+            </tr>
+        </table>
+        <table class="col3">
+            <tr>
+                <th>4mA Scale</th>
+                <th>20mA Scale</th>
+                <th>Units</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>100</td>
+                <td>psi</td>
+            </tr>
+            <tr>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.PT-101.min" value="0">
+                </td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.PT-101.max" value="100">
+                </td>
+                <td>gal</td>
+            </tr>
+        </table>
+        <br>
+        <table class="col4">
+            <tr>
+                <th>Alarm SP</th>
+                <th>Current SP (psi)</th>
+                <th>New SP (psi)</th>
+                <th>Email Enabled?</th>
+            </tr>
+            <tr>
+                <td>HH</td>
+                <td>80</td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" value="80"></td>
+                <td><input type="checkbox" name="cbx_pshh101" value="cbx_pshh101_EN"></td>
+            </tr>
+            <tr>
+                <td>LL</td>
+                <td>10</td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" value="10"></td>
+                <td><input type="checkbox" name="cbx_psll101" value="cbx_psll101_EN"></td>
+            </tr>
+        </table>
+        <table>
+            <tr class="firstRow">
+                <td>
+                    <h1>PT-102<br>Injection Pump<br>Pressure Transmitter</h1>
+                </td>
+                <td><b>Device<br>Connected?</b><br><input type="checkbox" name="cbx_pt102" value="cbx_pt102_EN"></td>
+            </tr>
+        </table>
+        <table class="col3">
+            <tr>
+                <th>4mA Scale</th>
+                <th>20mA Scale</th>
+                <th>Units</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>100</td>
+                <td>psi</td>
+            </tr>
+            <tr>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.PT-102.min" value="0">
+                </td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.PT-102.max"
+                        value="3000"></td>
+                <td>gal</td>
+            </tr>
+        </table>
+        <br>
+        <table class="col4">
+            <tr>
+                <th>Alarm SP</th>
+                <th>Current SP (psi)</th>
+                <th>New SP (psi)</th>
+                <th>Email Enabled?</th>
+            </tr>
+            <tr>
+                <td>HH</td>
+                <td>2500</td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" value="2500"></td>
+                <td><input type="checkbox" name="cbx_pshh102" value="cbx_pshh102_EN"></td>
+            </tr>
+            <tr>
+                <td>LL</td>
+                <td>10</td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" value="10"></td>
+                <td><input type="checkbox" name="cbx_psll102" value="cbx_psll102_EN"></td>
+            </tr>
+        </table>
+        <table>
+            <tr class="firstRow">
+                <td>
+                    <h1>PT-201<br>Feed Pump<br>Pressure Transmitter</h1>
+                </td>
+                <td><b>Device<br>Connected?</b><br><input type="checkbox" name="cbx_pt201" value="cbx_pt201_EN"></td>
+            </tr>
+        </table>
+        <table class="col3">
+            <tr>
+                <th>4mA Scale</th>
+                <th>20mA Scale</th>
+                <th>Units</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>100</td>
+                <td>psi</td>
+            </tr>
+            <tr>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.PT-201.min" value="0">
+                </td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.PT-201.max" value="100">
+                </td>
+                <td>gal</td>
+            </tr>
+        </table>
+        <br>
+        <table class="col4">
+            <tr>
+                <th>Alarm SP</th>
+                <th>Current SP (psi)</th>
+                <th>New SP (psi)</th>
+                <th>Email Enabled?</th>
+            </tr>
+            <tr>
+                <td>HH</td>
+                <td>80</td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" value="80"></td>
+                <td><input type="checkbox" name="cbx_pshh201" value="cbx_pshh201_EN"></td>
+            </tr>
+            <tr>
+                <td>LL</td>
+                <td>10</td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" value="10"></td>
+                <td><input type="checkbox" name="cbx_psll201" value="cbx_psll201_EN"></td>
+            </tr>
+        </table>
+        <table>
+            <tr class="firstRow">
+                <td>
+                    <h1>PT-202<br>Injection Pump<br>Pressure Transmitter</h1>
+                </td>
+                <td><b>Device<br>Connected?</b><br><input type="checkbox" name="cbx_pt202" value="cbx_pt202_EN"></td>
+            </tr>
+        </table>
+        <table class="col3">
+            <tr>
+                <th>4mA Scale</th>
+                <th>20mA Scale</th>
+                <th>Units</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>100</td>
+                <td>psi</td>
+            </tr>
+            <tr>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.PT-202.min" value="0">
+                </td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.PT-202.max"
+                        value="3000"></td>
+                <td>gal</td>
+            </tr>
+        </table>
+        <br>
+        <table class="col4">
+            <tr>
+                <th>Alarm SP</th>
+                <th>Current SP (psi)</th>
+                <th>New SP (psi)</th>
+                <th>Email Enabled?</th>
+            </tr>
+            <tr>
+                <td>HH</td>
+                <td>2500</td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" value="2500"></td>
+                <td><input type="checkbox" name="cbx_pshh202" value="cbx_pshh202_EN"></td>
+            </tr>
+            <tr>
+                <td>LL</td>
+                <td>10</td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" value="10"></td>
+                <td><input type="checkbox" name="cbx_psll202" value="cbx_psll202_EN"></td>
+            </tr>
+        </table>
+        <table>
+            <tr class="firstRow">
+                <td>
+                    <h1>TT-500<br>Temperature Transmitter</h1>
+                </td>
+                <td><b>Device<br>Connected?</b><br><input type="checkbox" name="cbx_tt500" value="cbx_tt500_EN"></td>
+            </tr>
+        </table>
+        <table class="col3">
+            <tr>
+                <th>4mA Scale</th>
+                <th>20mA Scale</th>
+                <th>Units</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>150</td>
+                <td>degF</td>
+            </tr>
+            <tr>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.TT-500.min" value="0">
+                </td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" name="&quot;MEM&quot;.TT-500.max" value="150">
+                </td>
+                <td>degF</td>
+            </tr>
+        </table>
+        <br>
+        <table class="col4">
+            <tr>
+                <th>Alarm SP</th>
+                <th>Current SP (degF)</th>
+                <th>New SP (degF)</th>
+                <th>Email Enabled?</th>
+            </tr>
+            <tr>
+                <td>HH</td>
+                <td>85</td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" value="85"></td>
+                <td><input type="checkbox" name="cbx_tahh500" value="cbx_tahh500_EN"></td>
+            </tr>
+            <tr>
+                <td>LL</td>
+                <td>55</td>
+                <td><input class="AlarmInput" type="number" pattern="\d*" value="55"></td>
+                <td><input type="checkbox" name="cbx_tall500" value="cbx_tall500_EN"></td>
+            </tr>
+        </table>
+        <table>
+            <tr class="firstRow">
+                <td>
+                    <h1>ECC-102<br>Stroke Position</h1>
+                </td>
+                <td><b>Device<br>Connected?</b><br><input type="checkbox" name="cbx_ecc102" value="cbx_ecc102_EN"></td>
+            </tr>
+        </table>
+        <table>
+            <tr class="firstRow">
+                <td>
+                    <h1>ECC-202<br>Stroke Position</h1>
+                </td>
+                <td><b>Device<br>Connected?</b><br><input type="checkbox" name="cbx_ecc202" value="cbx_ecc202_EN"></td>
             </tr>
         </table>
     </form>
