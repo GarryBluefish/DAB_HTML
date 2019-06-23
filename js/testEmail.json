@@ -1,0 +1,14 @@
+<!-- AWP_In_Variable Name = '"ANALOGS_NORETAIN".sendGPS' -->
+<!-- AWP_In_Variable Name = '"Non_Retained".Mail_Info.test' -->
+<!-- AWP_In_Variable Name = '"Non_Retained".Writ_DBL.REQ' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.transmit_cell' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].ESS.ESS_Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.XF-200.Enable' -->
+
+
+{
+"val" :	":="ANALOGS_NORETAIN".testDINT:",
+"len" :	"8;8",
+"typ" :	"3;3",
+"str" : ""
+}

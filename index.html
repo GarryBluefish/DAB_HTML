@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!-- id => target for javascript -->
+<!-- class => css usage -->
+<!-- name => PLC TAG write -->
+
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <title>DAB Information - Main</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <script src="js/javascript.js"> </script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+</head>
+
+<div class="header">
+    <img src="images/LSPI_Logo.png">
+</div>
+<div class="nav">
+    <ul>
+        <li><a href="index.html" class="active">Main</a></li>
+        <li><a href="discretes.html">Discretes</a></li>
+        <li><a href="analogs.html">Analogs</a></li>
+        <li><a href="config.html">Config</a></li>
+        <li><a href="trends.html">Trends</a></li>
+    </ul>
+</div>
+<br>
+<h1>Analogs</h1>
+<h4>Red Background is Alarming</h4>
+
+<div class="main col4">
+    <table id="tableid">
+        <tr>
+            <th>Tagname</th>
+            <th>mA Value</th>
+            <th>Scaled</th>
+            <th>Units</th>
+        </tr>
+        <tr id="LIT401">
+            <td>LIT 401</td>
+            <td>:="Non_Retained".Ma_Values.LIT-401:</td>
+            <td>:="Non_Retained".Analog.LIT-401.Scaled_Value:</td>
+            <td>Gal</td>
+            <script>
+                hide_unused("LIT401", ':="Retained".array[0].Enable.LIT-401:');
+                show_alarms("LIT401", ':="Non_Retained".Analog.LIT-401.Alarming:');
+            </script>
+        </tr>
+        <tr id="LIT403">
+            <td>LIT 403</td>
+            <td>:="Non_Retained".Ma_Values.LIT-403:</td>
+            <td>:="Non_Retained".Analog.LIT-403.Scaled_Value:</td>
+            <td>Gal</td>
+            <script>
+                hide_unused("LIT403", ':="Retained".array[0].Enable.LIT-403:');
+                show_alarms("LIT403", ':="Non_Retained".Analog.LIT-403.Alarming:');
+            </script>
+        </tr>
+        <tr id="LIT601">
+            <td>LIT 601</td>
+            <td>:="Non_Retained".Ma_Values.LIT-601:</td>
+            <td>:="Non_Retained".Analog.LIT-601.Scaled_Value:</td>
+            <td>Gal</td>
+            <script>
+                hide_unused("LIT601", ':="Retained".array[0].Enable.LIT-601:');
+                show_alarms("LIT601", ':="Non_Retained".Analog.LIT-601.Alarming:');
+            </script>
+        </tr>
+        <tr id="FIT102">
+            <td>FIT 102</td>
+            <td>:="Non_Retained".Ma_Values.FIT-102:</td>
+            <td>:="Non_Retained".Analog.FIT-102.Scaled_Value:</td>
+            <td>gph</td>
+            <script>
+                hide_unused("FIT102", ':="Retained".array[0].Enable.FIT-102:');
+                show_alarms("FIT102", ':="Non_Retained".Analog.FIT-102.Alarming:');
+            </script>
+        </tr>
+        <tr id="FIT202">
+            <td>FIT 202</td>
+            <td>:="Non_Retained".Ma_Values.FIT-202:</td>
+            <td>:="Non_Retained".Analog.FIT-202.Scaled_Value:</td>
+            <td>gph</td>
+            <script>
+                hide_unused("FIT202", ':="Retained".array[0].Enable.FIT-202:');
+                show_alarms("FIT202", ':="Non_Retained".Analog.FIT-202.Alarming:');
+            </script>
+        </tr>
+        <tr id="QI102">
+            <td>QI 102</td>
+            <td>:="Non_Retained".Ma_Values.QI-102:</td>
+            <td>:="Non_Retained".Analog.QI-102.Scaled_Value:</td>
+            <td>RPM</td>
+            <script>
+                hide_unused("QI102", ':="Retained".array[0].Enable.QI-102:');
+                show_alarms("QI102", ':="Non_Retained".Analog.QI-102.Alarming:');
+            </script>
+        </tr>
+        <tr id="QI202">
+            <td>QI 202</td>
+            <td>:="Non_Retained".Ma_Values.QI-202:</td>
+            <td>:="Non_Retained".Analog.QI-202.Scaled_Value:</td>
+            <td>RPM</td>
+            <script>
+                hide_unused("QI202", ':="Retained".array[0].Enable.QI-202:');
+                show_alarms("QI202", ':="Non_Retained".Analog.QI-202.Alarming:');
+            </script>
+        </tr>
+        <tr id="PT101">
+            <td>PT 101</td>
+            <td>:="Non_Retained".Ma_Values.PT-201:</td>
+            <td>:="Non_Retained".Analog.PT-201.Scaled_Value:</td>
+            <td>psi</td>
+            <script>
+                hide_unused("PT101", ':="Retained".array[0].Enable.PT-101:');
+                show_alarms("PT101", ':="Non_Retained".Analog.PT-101.Alarming:');
+            </script>
+        </tr>
+        <tr id="PT102">
+            <td>PT 102</td>
+            <td>:="Non_Retained".Ma_Values.PT-102:</td>
+            <td>:="Non_Retained".Analog.PT-102.Scaled_Value:</td>
+            <td>psi</td>
+            <script>
+                hide_unused("PT102", ':="Retained".array[0].Enable.PT-102:');
+                show_alarms("PT102", ':="Non_Retained".Analog.PT-102.Alarming:');
+            </script>
+        </tr>
+        <tr id="PT201">
+            <td>PT 201</td>
+            <td>:="Non_Retained".Ma_Values.PT-201:</td>
+            <td>:="Non_Retained".Analog.PT-201.Scaled_Value:</td>
+            <td>psi</td>
+            <script>
+                hide_unused("PT201", ':="Retained".array[0].Enable.PT-201:');
+                show_alarms("PT201", ':="Non_Retained".Analog.PT-201.Alarming:');
+            </script>
+        </tr>
+        <tr id="PT202">
+            <td>PT 202</td>
+            <td>:="Non_Retained".Ma_Values.PT-202:</td>
+            <td>:="Non_Retained".Analog.PT-202.Scaled_Value:</td>
+            <td>psi</td>
+            <script>
+                hide_unused("PT202", ':="Retained".array[0].Enable.PT-202:');
+                show_alarms("PT202", ':="Non_Retained".Analog.PT-202.Alarming:');
+            </script>
+        </tr>
+        <tr id="PT301">
+            <td>PT 301</td>
+            <td>:="Non_Retained".Ma_Values.PT-301:</td>
+            <td>:="Non_Retained".Analog.PT-301.Scaled_Value:</td>
+            <td>psi</td>
+            <script>
+                hide_unused("PT301", ':="Retained".array[0].Enable.PT-301:');
+                show_alarms("PT301", ':="Non_Retained".Analog.PT-301.Alarming:');
+            </script>
+        </tr>
+        <tr id="PT302">
+            <td>PT 302</td>
+            <td>:="Non_Retained".Ma_Values.PT-302:</td>
+            <td>:="Non_Retained".Analog.PT-302.Scaled_Value:</td>
+            <td>psi</td>
+            <script>
+                hide_unused("PT302", ':="Retained".array[0].Enable.PT-302:');
+                show_alarms("PT302", ':="Non_Retained".Analog.PT-302.Alarming:');
+            </script>
+        </tr>
+        <tr id="TT500">
+            <td>TT 500</td>
+            <td>:="Non_Retained".Ma_Values.TT-500:</td>
+            <td>:="Non_Retained".Analog.TT-500.Scaled_Value:</td>
+            <td>degF</td>
+            <script>
+                hide_unused("TT500", ':="Retained".array[0].Enable.TT-500:');
+                show_alarms("TT500", ':="Non_Retained".Analog.TT-500.Alarming:');
+            </script>
+        </tr>
+        <tr id="TT700">
+            <td>TT 700</td>
+            <td>:="Non_Retained".Ma_Values.TT-700:</td>
+            <td>:="Non_Retained".Analog.TT-700.Scaled_Value:</td>
+            <td>degF</td>
+            <script>
+                hide_unused("TT700", ':="Retained".array[0].Enable.TT-700:');
+                show_alarms("TT700", ':="Non_Retained".Analog.TT-700.Alarming:');
+            </script>
+        </tr>
+        <tr id="ECC102">
+            <td>ECC 102</td>
+            <td>:="Non_Retained".Ma_Values.ECC-102:</td>
+            <td>:="Non_Retained".Analog.ECC-102.Scaled_Value:</td>
+            <td>%</td>
+            <script>
+                hide_unused("ECC102", ':="Retained".array[0].Enable.ECC-102:');
+            </script>
+        </tr>
+        <tr id="ECC202">
+            <td>ECC 202</td>
+            <td>:="Non_Retained".Ma_Values.ECC-202:</td>
+            <td>:="Non_Retained".Analog.ECC-202.Scaled_Value:</td>
+            <td>%</td>
+            <script>
+                hide_unused("ECC202", ':="Retained".array[0].Enable.ECC-102:');
+            </script>
+        </tr>
+    </table>
+</div>
+<h1>Discretes</h1>
+<div class="main col3">
+    <table>
+        <tr>
+            <th>Tagname</th>
+            <th>Value</th>
+        </tr>
+        <tr id="KY400">
+            <td>KY-400</td>
+            <td>:=KY-400:</td>
+            <script>
+                hide_unused("KY400", ':="Retained".array[0].Enable.KY-400.Enable:');
+            </script>
+        </tr>
+        <tr id="LSHH101">
+            <td>LSHH-101</td>
+            <td>:=LSHH-101:</td>
+            <script>
+                hide_unused("LSHH101", ':="Retained".array[0].Enable.LSHH-101.Enable:');
+                show_alarms("LSHH101", ':="Non_Retained".Discreet.LSHH-101:');
+            </script>
+        </tr>
+        <tr id="LSHH102">
+            <td>LSHH-102</td>
+            <td>:=LSHH-102:</td>
+            <script>
+                hide_unused("LSHH102", ':="Retained".array[0].Enable.LSHH-102.Enable:');
+                show_alarms("LSHH102", ':="Non_Retained".Discreet.LSHH-102:');
+            </script>
+        </tr>
+        <tr id="LSHH201">
+            <td>LSHH-201</td>
+            <td>:=LSHH-201:</td>
+            <script>
+                hide_unused("LSHH201", ':="Retained".array[0].Enable.LSHH-201.Enable:');
+                show_alarms("LSHH201", ':="Non_Retained".discreet.LSHH-201:');
+            </script>
+        </tr>
+        <tr id="LSHH202">
+            <td>LSHH-202</td>
+            <td>:=LSHH-202:</td>
+            <script>
+                hide_unused("LSHH202", ':="Retained".array[0].Enable.LSHH-202.Enable:');
+                show_alarms("LSHH202", ':="Non_Retained".discreet.LSHH-202:');
+            </script>
+        </tr>
+        <tr>
+        <tr id="MSP101">
+            <td>MS-P101</td>
+            <td>:=MS-P101:</td>
+            <script>
+                hide_unused("MSP101", ':="Retained".array[0].Enable.MS-P101.Enable:');
+                show_alarms("MSP101", ':="Non_Retained".discreet.MS-P101:');
+            </script>
+        </tr>
+        <tr id="MSP201">
+            <td>MS-P201</td>
+            <td>:=MS-P201:</td>
+            <script>
+                hide_unused("MSP201", ':="Retained".array[0].Enable.MS-P201.Enable:');
+                show_alarms("MSP201", ':="Non_Retained".discreet.MS-P201:');
+            </script>
+        </tr>
+        <tr id="PSLL101">
+            <td>PSLL-101</td>
+            <td>:=PSLL-101:</td>
+            <script>
+                hide_unused("PSLL101", ':="Retained".array[0].Enable.PSLL-101.Enable:');
+                show_alarms("PSLL101", ':="Non_Retained".discreet.PSLL-101:');
+            </script>
+        </tr>
+        <tr id="PSLL102">
+            <td>PSLL-102</td>
+            <td>:=PSLL-102:</td>
+            <script>
+                hide_unused("PSLL102", ':="Retained".array[0].Enable.PSLL-102.Enable:');
+                show_alarms("PSLL102", ':="Non_Retained".discreet.PSLL-102:');
+            </script>
+        </tr>
+        <tr id="PSLL201">
+            <td>PSLL-201</td>
+            <td>:=PSLL-201:</td>
+            <script>
+                hide_unused("PSLL201", ':="Retained".array[0].Enable.PSLL-201.Enable:');
+                show_alarms("PSLL201", ':="Non_Retained".discreet.PSLL-201:');
+            </script>
+        </tr>
+        <tr id="PSLL202">
+            <td>PSLL-202</td>
+            <td>:=PSLL-202:</td>
+            <script>
+                hide_unused("PSLL202", ':="Retained".array[0].Enable.PSLL-202.Enable:');
+                show_alarms("PSLL202", ':="Non_Retained".discreet.PSLL-202:');
+            </script>
+        </tr>
+        <tr id="PSHH101">
+            <td>PSHH-101</td>
+            <td>:=PSHH-101:</td>
+            <script>
+                hide_unused("PSHH101", ':="Retained".array[0].Enable.PSHH-101.Enable:');
+                show_alarms("PSHH101", ':="Non_Retained".discreet.PSHH-101:');
+            </script>
+        </tr>
+        <tr id="PSHH102">
+            <td>PSHH-102</td>
+            <td>:=PSHH-102:</td>
+            <script>
+                hide_unused("PSHH102", ':="Retained".array[0].Enable.PSHH-102.Enable:');
+                show_alarms("PSHH102", ':="Non_Retained".discreet.PSHH-102:');
+            </script>
+        </tr>
+        <tr id="PSHH201">
+            <td>PSHH-201</td>
+            <td>:=PSHH-201:</td>
+            <script>
+                hide_unused("PSHH201", ':="Retained".array[0].Enable.PSHH-201.Enable:');
+                show_alarms("PSHH201", ':="Non_Retained".discreet.PSHH-201:');
+            </script>
+        </tr>
+        <tr id="PSHH202">
+            <td>PSHH-202</td>
+            <td>:=PSHH-202:</td>
+            <script>
+                hide_unused("PSHH202", ':="Retained".array[0].Enable.PSHH-202.Enable:');
+                show_alarms("PSHH202", ':="Non_Retained".discreet.PSHH-202:');
+            </script>
+        </tr>
+        <tr id="PSD001">
+            <td>PSD-001</td>
+            <td>:=PSD-001:</td>
+            <script>
+                hide_unused("PSD001", ':="Retained".array[0].Enable.PSD-001.Enable:');
+                show_alarms("PSD001", ':="Non_Retained".discreet.PSD-001:');
+            </script>
+        </tr>
+        <tr id="PSD002">
+            <td>PSD-002</td>
+            <td>:=PSD-002:</td>
+            <script>
+                hide_unused("PSD002", ':="Retained".array[0].Enable.PSD-002.Enable:');
+                show_alarms("PSD002", ':="Non_Retained".discreet.PSD-002:');
+            </script>
+        </tr>
+        <tr id="XBS100">
+            <td>XBS-100</td>
+            <td>:=XBS-100:</td>
+            <script>
+                hide_unused("XBS100", ':="Retained".array[0].Enable.XBS-100.Enable:');
+            </script>
+        </tr>
+        <tr id="XBK100">
+            <td>XBK-100</td>
+            <td>:=XBK-100:</td>
+            <script>
+                hide_unused("XBK100", ':="Retained".array[0].Enable.XBK-100.Enable:');
+            </script>
+        </tr>
+        <tr id="XBS200">
+            <td>XBS-200</td>
+            <td>:=XBS-200:</td>
+            <script>
+                hide_unused("XBS200", ':="Retained".array[0].Enable.XBK-200.Enable:');
+            </script>
+        </tr>
+        <tr id="XBK200">
+            <td>XBK-200</td>
+            <td>:=XBK-200:</td>
+            <script>
+                hide_unused("XBK200", ':="Retained".array[0].Enable.XBS-200.Enable:');
+            </script>
+            <td></td>
+        </tr>
+        <tr id="UPS1600">
+            <td>UPS-1600</td>
+            <td>:=UPS-1600:</td>
+            <script>
+                hide_unused("UPS1600", ':="Retained".array[0].Enable.UPS-1600.Enable:');
+                show_alarms("UPS1600", ':="Non_Retained".discreet.UPS-1600:');
+            </script>
+        </tr>
+        <tr id="XF102">
+            <td>XF-102</td>
+            <td>:=XF-102:</td>
+            <script>
+                hide_unused("XF102", ':="Retained".array[0].Enable.XF-102.Enable:');
+                show_alarms("XF102", ':="Non_Retained".discreet.XF-102:');
+            </script>
+        </tr>
+        <tr id="XF202">
+            <td>XF-202</td>
+            <td>:=XF-202:</td>
+            <script>
+                hide_unused("XF202", ':="Retained".array[0].Enable.XF-202.Enable:');
+                show_alarms("XF202", ':="Non_Retained".discreet.XF-202:');
+            </script>
+        </tr>
+        <tr id="SDV103">
+            <td>SDV-103</td>
+            <td>:=SDV-103:</td>
+            <script>
+                hide_unused("SDV103", ':="Retained".array[0].Enable.SDV-103.Enable:');
+            </script>
+        </tr>
+        <tr id="SDV203">
+            <td>SDV-203</td>
+            <td>:=SDV-203:</td>
+            <script>
+                hide_unused("SDV203", ':="Retained".array[0].Enable.SDV-203.Enable:');
+            </script>
+        </tr>
+    </table>
+</div>
+<div class="footer">
+    <div class="col3">
+        <h1>Flow Totalizers</h1>
+        <table>
+            <tr id="FQIT102">
+                <td>Train 1:</td>
+                <td>:="Retained".array[0].Flow.FQI-102.TotalFlowVolume:</td>
+                <td>gal</td>
+                <script>
+                    hide_unused("FQIT102", ':="Retained".array[0].Enable.FIT-102:');
+                </script>
+            </tr>
+            <tr id="FQIT202">
+                <td>Train 2:</td>
+                <td>:="Retained".array[0].Flow.FQI-202.TotalFlowVolume:</td>
+                <td>gal</td>
+                <script>
+                    hide_unused("FQIT202", ':="Retained".array[0].Enable.FIT-202:');
+                </script>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="footer">
+    <h1>Email Configuration</h1>
+    <table>
+        <tr>
+            <th>Info</th>
+            <th>Current Value</th>
+        </tr>
+        <tr>
+            <td>Skid Name</td>
+            <td>:="Retained".array[0].Mail_Info.webFROM:</td>
+        </tr>
+        <tr>
+            <td>To Address: </td>
+            <td>:="Retained".array[0].Mail_Info.webTO:</td>
+        </tr>
+        <tr>
+            <td>CC Address: </td>
+            <td>:="Retained".array[0].Mail_Info.webCC:</td>
+        </tr>
+    </table>
+</div>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <title>DAB Information - Trends</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <script src="js/googleCharts.js"> </script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/S7_framework.js"></script>
+    <script src="js/javascript.js"> </script>
+
+</head>
+<div class="header">
+    <img src="images/LSPI_Logo.png">
+</div>
+<div class="nav">
+    <ul>
+        <li><a href="index.html">Main</a></li>
+        <li><a href="discretes.html">Discretes</a></li>
+        <li><a href="analogs.html">Analogs</a></li>
+        <li><a href="config.html">Config</a></li>
+        <li><a href="trends.html" class="active">Trends</a></li>
+    </ul>
+</div>
+
+<div class="main">
+    <ul>
+        <li><button onclick="toggle()">Pause/<br>Restart</button></li>
+        <li>
+            <h3>Select Tag to Trend</h3>
+            <select id="selectTag">
+                <option value="lit401">LIT-401</option>
+                <option value="lit403">LIT-403</option>
+                <option value="lit601">LIT-601</option>
+                <option value="fit102">FIT-102</option>
+                <option value="fit202">FIT-202</option>
+                <option value="qi102">QI-102</option>
+                <option value="qi202">QI-202</option>
+                <option value="pt101">PT-101</option>
+                <option value="pt102">PT-102</option>
+                <option value="pt201">PT-201</option>
+                <option value="pt202">PT-202</option>
+                <option value="pt301">PT-301</option>
+                <option value="pt302">PT-302</option>
+                <option value="ecc102">ECC-102</option>
+                <option value="ecc202">ECC-202</option>
+                <option value="tt500">TT-500</option>
+                <option value="tt700">TT-700</option>
+                <option value="lshh101">LSHH-101</option>
+                <option value="lshh102">LSHH-102</option>
+                <option value="lshh201">LSHH-201</option>
+                <option value="lshh202">LSHH-202</option>
+                <option value="psd001">PSD-001</option>
+                <option value="psd002">PSD-002</option>
+                <option value="pshh101">PSHH-101</option>
+                <option value="pshh102">PSHH-102</option>
+                <option value="pshh201">PSHH-201</option>
+                <option value="pshh202">PSHH-202</option>
+                <option value="psll102">PSLL-102</option>
+                <option value="psll202">PSLL-202</option>
+                <option value="msp101">MS-P101</option>
+                <option value="msp201">MS-P201</option>
+                <option value="msp301">MS-P301</option>
+                <option value="msp302">MS-P302</option>
+                <option value="xf102">XF-102</option>
+                <option value="xf202">XF-202</option>
+                <option value="ups1600">UPS-1600</option>
+            </select>
+        </li>
+    </ul>
+    <div style="width:100%; text-align:center"><i>Data faster than 0.2s may be lost</i></div>
+</div>
+<div id="chart_div" class="main"></div>
+
+<script>
+    google.charts.load('current', {
+        callback: drawChart,
+        packages: ['corechart', 'line']
+    });
+
+    var data;
+    var options;
+    var chart = null;
+    var c = 1;
+    var tagpage;
+    var pauseresume = 1;
+    var holdingTag;
+    var to;
+
+    $(document).ready(function () {
+        $.ajaxSetup({
+            cache: false
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+    });
+
+
+    function drawChart() {
+        data = new google.visualization.DataTable();
+        data.addColumn('string', 'X');
+        data.addColumn('number', 'Value');
+        // Set chart options
+        options = {
+            'title': 'Data Trending every 0.2 seconds',
+            legend: {
+                position: 'none'
+            },
+            hAxis: {
+                title: 'Data Point'
+            },
+            vAxis: {
+                title: 'Value'
+            }
+        };
+
+        chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        addData();
+    }
+
+    function addData() {
+        if (holdingTag != $("#selectTag").val()) {
+            holdingTag = $("#selectTag").val();
+            c = 1;
+            drawChart();
+        }
+
+        clearTimeout(to);
+        tagpage = 'tagdata/' + $("#selectTag").val() + '.html';
+
+        //retrieve selected tag from html reference
+        $.get(tagpage, function (result) {
+            //convert string to number with 2 significant digits
+            data.addRow([c + '', Number(Number(result).toFixed(2))]);
+            c++;
+        });
+
+        //draws the entire chart, from start to finish using data array
+        chart.draw(data, options);
+
+        //allows user to pause the chart draw for interaction abilities
+        if (pauseresume) {
+            to = setTimeout(addData, 200);
+        }
+    }
+
+    //allows user to pause the chart draw for interaction abilities
+    function toggle() {
+        if (pauseresume) {
+            pauseresume = 0;
+        } else {
+            //location.reload();
+            pauseresume = 1;
+            c = 1;
+            drawChart();
+        }
+    }
+
+    //if the user resizes the window, redraw the chart accordingly
+    window.addEventListener('resize', chart.draw(data, options), false);
+
+</script>
+
+</html>

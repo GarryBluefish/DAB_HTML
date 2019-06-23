@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!-- id => target for javascript -->
+<!-- class => css usage -->
+<!-- name => PLC TAG write -->
+
+<!-- AWP_Enum_Def Name="TrueFalse" Values='
+    0:"False",
+    1:"True"'-->
+
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.LSHH-101.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.LSHH-102.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.LSHH-201.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.LSHH-301.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.LSHH-302.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.MS-P101.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.MS-P201.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.MS-P301.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.MS-P302.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.PSD-001.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.PSD-002.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.PSHH-102.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.PSHH-202.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.PSLL-102.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.PSLL-202.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.XF-102.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.XF-202.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.UPS-1600.LowAlarm' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.LSHH-101.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.LSHH-102.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.LSHH-201.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.LSHH-202.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.MS-P101.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.MS-P201.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.MS-P301.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.MS-P302.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.PSD-001.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.PSD-002.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.PSHH-101.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.PSHH-102.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.PSHH-201.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.PSHH-202.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.PSLL-102.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.PSLL-202.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.XF-102.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.XF-202.Enable' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Enable.UPS-1600.Enable' -->
+
+
+
+
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <title>DAB Information - Discretes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/S7_framework.js"></script>
+    <script src="js/javascript.js"> </script>
+</head>
+<div class="header">
+    <img src="images/LSPI_Logo.png">
+</div>
+<div class="nav">
+    <ul>
+        <li><a href="index.html">Main</a></li>
+        <li><a href="discretes.html" class="active">Discretes</a></li>
+        <li><a href="analogs.html">Analogs</a></li>
+        <li><a href="config.html">Config</a></li>
+        <li><a href="trends.html">Trends</a></li>
+    </ul>
+</div>
+<div class="main col4">
+    <form method="post">
+        <ul>
+            <li><button type="submit" onclick="btnBackup()">Submit<br>Changes</button></li>
+            <li>
+                <h1>Discrete<br>Config</h1>
+            </li>
+        </ul>
+        <br>
+        <!-- this table is hidden from user view but holds the value to be inserted into PLC TAG -->
+        <table class="hidden">
+            <tr>
+                <td><input id="lshh101_hidState" type="number" name="&quot;Retained&quot;.array[0].Enable.LSHH-101.LowAlarm"
+                        value=':="Retained".array[0].Enable.LSHH-101.LowAlarm:'></td>
+                <td><input id="lshh102_hidState" type="number" name="&quot;Retained&quot;.array[0].Enable.LSHH-102.LowAlarm"
+                        value=':="Retained".array[0].Enable.LSHH-102.LowAlarm:'></td>
+                <td><input id="lshh201_hidState" type="number" name="&quot;Retained&quot;.array[0].LEnable.SHH-201.LowAlarm"
+                        value=':="Retained".array[0].Enable.LSHH-201.LowAlarm:'></td>
+                <td><input id="lshh202_hidState" type="number" name="&quot;Retained&quot;.array[0].Enable.LSHH-202.LowAlarm"
+                        value=':="Retained".array[0].Enable.LSHH-202.LowAlarm:'></td>
+                <td><input id="msp101_hidState" type="number" name="&quot;Retained&quot;.array[0].Enable.MS-P101.LowAlarm:"
+                        value=':="Retained".array[0].Enable.MS-P101.LowAlarm:'></td>
+                <td><input id="msp201_hidState" type="number" name="&quot;Retained&quot;.array[0].Enable.MS-P201.LowAlarm"
+                        value=':="Retained".array[0].Enable.MS-P201.LowAlarm:'></td>
+                <td><input id="msp301_hidState" type="number" name="&quot;Retained&quot;.array[0].Enable.MS-P301.LowAlarm"
+                        value=':="Retained".array[0].Enable.MS-P301.LowAlarm:'></td>
+                <td><input id="msp302_hidState" type="number" name="&quot;Retained&quot;.array[0].Enable.MS-P302.LowAlarm"
+                        value=':="Retained".array[0].Enable.MS-P302.LowAlarm:'></td>
+                <td><input id="psd001_hidState" type="number" name="&quot;Retained&quot;.array[0].Enable.PSD-001.LowAlarm"
+                        value=':="Retained".array[0].Enable.PSD-001.LowAlarm:'></td>
+                <td><input id="psd002_hidState" type="number" name="&quot;Retained&quot;.array[0].Enable.PSD-002.LowAlarm"
+                        value=':="Retained".array[0].Enable.PSD-002.LowAlarm:'></td>
+                <td><input id="pshh102_hidState" type="number" name="&quot;Retained&quot;.array[0].Enable.PSHH-102.LowAlarm"
+                        value=':="Retained".array[0].Enable.PSHH-102.LowAlarm:'></td>
+                <td><input id="pshh202_hidState" type="number" name="&quot;Retained&quot;.array[0].Enable.PSHH-202.LowAlarm"
+                        value=':="Retained".array[0].Enable.PSHH-202.LowAlarm:'></td>
+                <td><input id="psll102_hidState" type="number" name="&quot;Retained&quot;.array[0].Enable.PSLL-102.LowAlarm"
+                        value=':="Retained".array[0].Enable.PSLL-102.LowAlarm:'></td>
+                <td><input id="psll202_hidState" type="number" name="&quot;Retained&quot;.array[0].Enable.PSLL-202.LowAlarm"
+                        value=':="Retained".array[0].Enable.PSLL-202.LowAlarm:'></td>
+                <td><input id="xf102_hidState" type="number" name="&quot;Retained&quot;.array[0].Enable.XF-102.LowAlarm"
+                        value=':="Retained".array[0].Enable.XF-102.LowAlarm:'></td>
+                <td><input id="xf202_hidState" type="number" name="&quot;Retained&quot;.array[0].Enable.XF-202.LowAlarm"
+                        value=':="Retained".array[0].Enable.XF-202.LowAlarm:'></td>
+                <td><input id="ups1600_hidState" type="number" name="&quot;Retained&quot;.array[0].Enable.UPS-1600.LowAlarm"
+                        value=':="Retained".array[0].Enable.UPS-1600.LowAlarm:'></td>
+            </tr>
+            <tr>
+                <!-- hidden checkbox status -->
+                <!-- Device Enable -->
+                <td><input id="lshh101_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.LSHH-101.Enable"></td>
+                <td><input id="lshh102_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.LSHH-102.Enable"></td>
+                <td><input id="lshh201_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.LSHH-201.Enable"></td>
+                <td><input id="lshh202_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.LSHH-202.Enable"></td>
+                <td><input id="msp101_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.MS-P101.Enable"></td>
+                <td><input id="msp201_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.MS-P201.Enable"></td>
+                <td><input id="msp301_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.MS-P301.Enable"></td>
+                <td><input id="msp302_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.MS-P302.Enable"></td>
+                <td><input id="psd001_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.PSD-001.Enable"></td>
+                <td><input id="psd002_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.PSD-002.Enable"></td>
+                <td><input id="pshh102_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.PSHH-102.Enable"></td>
+                <td><input id="pshh202_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.PSHH-202.Enable"></td>
+                <td><input id="psll102_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.PSLL-102.Enable"></td>
+                <td><input id="psll202_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.PSLL-202.Enable"></td>
+                <td><input id="xf102_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.XF-102.Enable"></td>
+                <td><input id="xf202_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.XF-202.Enable"></td>
+                <td><input id="ups1600_hidCbx" type="number" name="&quot;Retained&quot;.array[0].Enable.UPS-1600.Enable"></td>
+            </tr>
+        </table>
+
+        <table>
+            <!-- replace all name with proper tag name -->
+            <tr>
+                <th>Name</th>
+                <th>Current State</th>
+                <th>Alarm State</th>
+                <th>Enable?</th>
+            </tr>
+            <tr id="LSHH101">
+                <td>LSHH-101</td>
+                <td>:=LSHH-101:</td>
+                <td onclick="myClick('lshh101_false','lshh101_true','lshh101_hidState')">
+                    <span id="lshh101_false">0</span> / <span id="lshh101_true"
+                        style="color:rgb(209, 209, 209);">1</span>
+                </td>
+                <td><input type="checkbox" id="cbx_lshh101"
+                        onchange='discrete_cbxOnChange("cbx_lshh101","lshh101_hidCbx")'></td>
+                <script>
+                    discrete_cbxInitialize('cbx_lshh101', 'lshh101_hidCbx', ':="Retained".array[0].Enable.LSHH-101.Enable:');
+                    parseAlarmState("lshh101_false", "lshh101_true", "lshh101_hidState");
+                    show_alarms("LSHH101", ':="Non_Retained".discreet.LSHH-101:');
+                </script>
+            </tr>
+            <tr id="LSHH102">
+                <td>LSHH-102</td>
+                <td>:=LSHH-102:</td>
+                <td onclick="myClick('lshh102_false','lshh102_true','lshh102_hidState')"><span
+                        id="lshh102_false">0</span> / <span id="lshh102_true" style="color:rgb(209, 209, 209);">1</span>
+                </td>
+                <td><input type="checkbox" id="cbx_lshh102"
+                        onchange='discrete_cbxOnChange("cbx_lshh102","lshh102_hidCbx")'></td>
+                <script>
+                    discrete_cbxInitialize('cbx_lshh102', 'lshh102_hidCbx', ':="Retained".array[0].Enable.LSHH-102.Enable:');
+                    parseAlarmState("lshh102_false", "lshh102_true", "lshh102_hidState");
+                    show_alarms("LSHH102", ':="Non_Retained".discreet.LSHH-102:');
+                </script>
+            </tr>
+            <tr id="LSHH201">
+                <td>LSHH-201</td>
+                <td>:=LSHH-201:</td>
+                <td onclick="myClick('lshh201_false','lshh201_true','lshh201_hidState')"><span
+                        id="lshh201_false">0</span> / <span id="lshh201_true" style="color:rgb(209, 209, 209);">1</span>
+                </td>
+                <td><input type="checkbox" id="cbx_lshh201"
+                        onchange='discrete_cbxOnChange("cbx_lshh201","lshh201_hidCbx")'></td>
+                <script>
+                    discrete_cbxInitialize('cbx_lshh201', 'lshh201_hidCbx', ':="Retained".array[0].Enable.LSHH-201.Enable:');
+                    parseAlarmState("lshh201_false", "lshh201_true", "lshh201_hidState");
+                    show_alarms("LSHH201", '"Non_Retained".discreet.LSHH-201:');
+                </script>
+            </tr>
+            <tr id="LSHH202">
+                <td>LSHH-202</td>
+                <td>:=LSHH-202:</td>
+                <td onclick="myClick('lshh202_false','lshh202_true','lshh202_hidState')"><span
+                        id="lshh202_false">0</span> / <span id="lshh202_true" style="color:rgb(209, 209, 209);">1</span>
+                </td>
+                <td><input type="checkbox" id="cbx_lshh202"
+                        onchange='discrete_cbxOnChange("cbx_lshh202","lshh202_hidCbx")'></td>
+                <script>
+                    discrete_cbxInitialize('cbx_lshh202', 'lshh202_hidCbx', ':="Retained".array[0].Enable.LSHH-202.Enable:');
+                    parseAlarmState("lshh202_false", "lshh202_true", "lshh202_hidState");
+                    show_alarms("LSHH202", ':="Non_Retained".discreet.LSHH-202:');
+                </script>
+            </tr>
+            <tr id="PSD001">
+                <td>PSD-001</td>
+                <td>:=PSD-001:</td>
+                <td onclick="myClick('psd001_false','psd001_true','psd001_hidState')"><span id="psd001_false">0</span> /
+                    <span id="psd001_true" style="color:rgb(209, 209, 209);">1</span></td>
+                <td><input type="checkbox" id="cbx_psd001"
+                        onchange='discrete_cbxOnChange("cbx_psd001","psd001_hidCbx")'></td>
+                <script>
+                    discrete_cbxInitialize('cbx_psd001', 'psd001_hidCbx', ':="Retained".array[0].Enable.PSD-001.Enable:');
+                    parseAlarmState("psd001_false", "psd001_true", "psd001_hidState");
+                    show_alarms("PSD001", ':="Non_Retained".discreet.PSD-001:');
+                </script>
+            </tr>
+            <tr id="PSD002">
+                <td>PSD-002</td>
+                <td>:=PSD-002:</td>
+                <td onclick="myClick('psd002_false','psd002_true','psd002_hidState')"><span id="psd002_false">0</span> /
+                    <span id="psd002_true" style="color:rgb(209, 209, 209);">1</span></td>
+                <td><input type="checkbox" id="cbx_psd002"
+                        onchange='discrete_cbxOnChange("cbx_psd002","psd002_hidCbx")'></td>
+                <script>
+                    discrete_cbxInitialize('cbx_psd002', 'psd002_hidCbx', ':="Retained".array[0].Enable.PSD-002.Enable:');
+                    parseAlarmState("psd002_false", "psd002_true", "psd002_hidState");
+                    show_alarms("PSD002", ':="Non_Retained".discreet.PSD-002:');
+                </script>
+            </tr>
+            <tr id="PSHH102">
+                <td>PSHH-102</td>
+                <td>:=PSHH-102:</td>
+                <td onclick="myClick('pshh102_false','pshh102_true','pshh102_hidState')"><span
+                        id="pshh102_false">0</span> / <span id="pshh102_true" style="color:rgb(209, 209, 209);">1</span>
+                </td>
+                <td><input type="checkbox" id="cbx_pshh102"
+                        onchange='discrete_cbxOnChange("cbx_pshh102","pshh102_hidCbx")'></td>
+                <script>
+                    discrete_cbxInitialize('cbx_pshh102', 'pshh102_hidCbx', ':="Retained".array[0].Enable.PSHH-102.Enable:');
+                    parseAlarmState("pshh102_false", "pshh102_true", "pshh102_hidState");
+                    show_alarms("PSHH102", ':="Non_Retained".discreet.PSHH-102:');
+                </script>
+            </tr>
+            <tr id="PSHH202">
+                <td>PSHH-202</td>
+                <td>:=PSHH-202:</td>
+                <td onclick="myClick('pshh202_false','pshh202_true','pshh202_hidState')"><span
+                        id="pshh202_false">0</span> / <span id="pshh202_true" style="color:rgb(209, 209, 209);">1</span>
+                </td>
+                <td><input type="checkbox" id="cbx_pshh202"
+                        onchange='discrete_cbxOnChange("cbx_pshh202","pshh202_hidCbx")'></td>
+                <script>
+                    discrete_cbxInitialize('cbx_pshh202', 'pshh202_hidCbx', ':="Retained".array[0].Enable.PSHH-202.Enable:');
+                    parseAlarmState("pshh202_false", "pshh202_true", "pshh202_hidState");
+                    show_alarms("PSHH202", ':="Non_Retained".discreet.PSHH-202:');
+                </script>
+            </tr>
+            <tr id="PSLL102">
+                <td>PSLL-102</td>
+                <td>:=PSLL-102:</td>
+                <td onclick="myClick('psll102_false','psll102_true','psll102_hidState')"><span
+                        id="psll102_false">0</span> / <span id="psll102_true" style="color:rgb(209, 209, 209);">1</span>
+                </td>
+                <td><input type="checkbox" id="cbx_psll102"
+                        onchange='discrete_cbxOnChange("cbx_psll102","psll102_hidCbx")'></td>
+                <script>
+                    discrete_cbxInitialize('cbx_psll102', 'psll102_hidCbx', ':="Retained".array[0].Enable.PSLL-102.Enable:');
+                    parseAlarmState("psll102_false", "psll102_true", "psll102_hidState");
+                    show_alarms("PSLL102", ':="Non_Retained".discreet.PSLL-102:');
+                </script>
+            </tr>
+            <tr id="PSLL202">
+                <td>PSLL-202</td>
+                <td>:=PSLL-202:</td>
+                <td onclick="myClick('psll202_false','psll202_true','psll202_hidState')"><span
+                        id="psll202_false">0</span> / <span id="psll202_true" style="color:rgb(209, 209, 209);">1</span>
+                </td>
+                <td><input type="checkbox" id="cbx_psll202"
+                        onchange='discrete_cbxOnChange("cbx_psll202","psll202_hidCbx")'></td>
+                <script>
+                    discrete_cbxInitialize('cbx_psll202', 'psll202_hidCbx', ':="Retained".array[0].Enable.PSLL-202.Enable:');
+                    parseAlarmState("psll202_false", "psll202_true", "psll202_hidState");
+                    show_alarms("PSLL202", ':="Non_Retained".discreet.PSLL-202:');
+                </script>
+            </tr>
+            <tr id="MSP101">
+                <td>MS-P101</td>
+                <td>:=MS-P101:</td>
+                <td onclick="myClick('msp101_false','msp101_true','msp101_hidState')"><span id="msp101_false">0</span> /
+                    <span id="msp101_true" style="color:rgb(209, 209, 209);">1</span></td>
+                <td><input type="checkbox" id="cbx_msp101"
+                        onchange='discrete_cbxOnChange("cbx_msp101","msp101_hidCbx")'></td>
+                <script>
+                    discrete_cbxInitialize('cbx_msp101', 'msp101_hidCbx', ':="Retained".array[0].Enable.MS-P101.Enable:');
+                    parseAlarmState("msp101_false", "msp101_true", "msp101_hidState");
+                    show_alarms("MSP101", ':="Non_Retained".discreet.MS-P101:');
+                </script>
+            </tr>
+            <tr id="MSP201">
+                <td>MS-P201</td>
+                <td>:=MS-P201:</td>
+                <td onclick="myClick('msp201_false','msp201_true','msp201_hidState')"><span id="msp201_false">0</span> /
+                    <span id="msp201_true" style="color:rgb(209, 209, 209);">1</span></td>
+                <td><input type="checkbox" id="cbx_msp201"
+                        onchange='discrete_cbxOnChange("cbx_msp201","msp201_hidCbx")'></td>
+                <script>
+                    discrete_cbxInitialize('cbx_msp201', 'msp201_hidCbx', ':="Retained".array[0].Enable.MS-P201.Enable:');
+                    parseAlarmState("msp201_false", "msp201_true", "msp201_hidState");
+                    show_alarms("MSP201", ':="Non_Retained".discreet.MS-P201:');
+                </script>
+            </tr>
+            <tr id="MSP301">
+                <td>MS-P301</td>
+                <td>:=MS-P301:</td>
+                <td onclick="myClick('msp301_false','msp301_true','msp301_hidState')"><span id="msp301_false">0</span> /
+                    <span id="msp301_true" style="color:rgb(209, 209, 209);">1</span></td>
+                <td><input type="checkbox" id="cbx_msp301"
+                        onchange='discrete_cbxOnChange("cbx_msp301","msp301_hidCbx")'></td>
+                <script>
+                    discrete_cbxInitialize('cbx_msp301', 'msp301_hidCbx', ':="Retained".array[0].ESS.MS-P301.Enable:');
+                    parseAlarmState("msp301_false", "msp301_true", "msp301_hidState");
+                    show_alarms("MSP301", ':="Non_Retained".discreet.MS-P301:');
+                </script>
+            </tr>
+            <tr id="MSP302">
+                <td>MS-P302</td>
+                <td>:=MS-P302:</td>
+                <td onclick="myClick('msp302_false','msp302_true','msp302_hidState')"><span id="msp302_false">0</span> /
+                    <span id="msp302_true" style="color:rgb(209, 209, 209);">1</span></td>
+                <td><input type="checkbox" id="cbx_msp302"
+                        onchange='discrete_cbxOnChange("cbx_msp302","msp302_hidCbx")'></td>
+                <script>
+                    discrete_cbxInitialize('cbx_msp302', 'msp302_hidCbx', ':="Retained".array[0].ESS.MS-P302.Enable:');
+                    parseAlarmState("msp302_false", "msp302_true", "msp302_hidState");
+                    show_alarms("MSP302", ':="Non_Retained".discreet.MS-P302:');
+                </script>
+            </tr>
+            <tr id="XF102">
+                <td>XF-102</td>
+                <td>:=XF-102:</td>
+                <td onclick="myClick('xf102_false','xf102_true','xf102_hidState')"><span id="xf102_false">0</span> /
+                    <span id="xf102_true" style="color:rgb(209, 209, 209);">1</span></td>
+                <td><input type="checkbox" id="cbx_xf102" onchange='discrete_cbxOnChange("cbx_xf102","xf102_hidCbx")'>
+                </td>
+                <script>
+                    discrete_cbxInitialize('cbx_xf102', 'xf102_hidCbx', ':="Retained".array[0].Enable.XF-102.Enable:');
+                    parseAlarmState("xf102_false", "xf102_true", "xf102_hidState");
+                    show_alarms("XF102", ':="Non_Retained".discreet..XF-102:');
+                </script>
+            </tr>
+            <tr id="XF202">
+                <td>XF-202</td>
+                <td>:=XF-202:</td>
+                <td onclick="myClick('xf202_false','xf202_true','xf202_hidState')"><span id="xf202_false">0</span> /
+                    <span id="xf202_true" style="color:rgb(209, 209, 209);">1</span></td>
+                <td><input type="checkbox" id="cbx_xf202" onchange='discrete_cbxOnChange("cbx_xf202","xf202_hidCbx")'>
+                </td>
+                <script>
+                    discrete_cbxInitialize('cbx_xf202', 'xf202_hidCbx', ':="Retained".array[0].Enable.XF-202.Enable:');
+                    parseAlarmState("xf202_false", "xf202_true", "xf202_hidState");
+                    show_alarms("XF202", ':="Non_Retained".discreet.XF-202:');
+                </script>
+            </tr>
+            <tr id="UPS1600">
+                <td>UPS-1600</td>
+                <td>:=UPS-1600:</td>
+                <td onclick="myClick('ups1600_false','ups1600_true','ups1600_hidState')"><span
+                        id="ups1600_false">0</span> / <span id="ups1600_true" style="color:rgb(209, 209, 209);">1</span>
+                </td>
+                <td><input type="checkbox" id="cbx_ups1600"
+                        onchange='discrete_cbxOnChange("cbx_ups1600","ups1600_hidCbx")'></td>
+                <script>
+                    discrete_cbxInitialize('cbx_ups1600', 'ups1600_hidCbx', ':="Retained".array[0].Enable.UPS-1600.Enable:');
+                    parseAlarmState("ups1600_false", "ups1600_true", "ups1600_hidState");
+                    show_alarms("UPS1600", ':="Non_Retained".discreet.UPS-1600:');
+                </script>
+            </tr>
+        </table>
+
+    </form>
+</div>
+<div class="footer"></div>
+
+<script>
+    function btnBackup() {
+        //placeholder for receipe save tag toggle
+        plcType = "1200";
+        S7Framework.initialize(plcType, "");
+        var data = '"Non_Retained".Writ_DBL.REQ' + '=' + 1;
+        //add to json file:
+        //<!-- AWP_In_Variable Name = '"<INSERTDBNAME>".INSERTTAGNAME' -->
+        S7Framework.writeData("js/testEmail.json", data, "communication to PLC failed");
+        alert('Backup complete');
+    }
+</script>
+
+</html>

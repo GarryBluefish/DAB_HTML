@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<!-- AWP_In_Variable Name = '"Retained".array[0].Mail_Info.webFROM' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Mail_Info.webTO' -->
+<!-- AWP_In_Variable Name = '"Retained".array[0].Mail_Info.webCC' -->
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <title>DAB Information - Configuration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/S7_framework.js"></script>
+    <script src="js/javascript.js"> </script>
+
+</head>
+
+<body>
+</body>
+<div class="header">
+    <img src="images/LSPI_Logo.png">
+</div>
+<div class="nav">
+    <ul>
+        <li><a href="index.html">Main</a></li>
+        <li><a href="discretes.html">Discretes</a></li>
+        <li><a href="analogs.html">Analogs</a></li>
+        <li><a href="config.html" class="active">Config</a></li>
+        <li><a href="trends.html">Trends</a></li>
+    </ul>
+</div>
+<div class="main">
+    <form method="post">
+        <ul>
+            <li><button type="submit" onclick="btnBackup()">Submit<br>Changes</button></li>
+            <li>
+                <h1>Skid<br>Configs</h1>
+            </li>
+        </ul>
+        <br>
+        <table>
+            <tr>
+                <th>Info</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>DAB Code Version</td>
+                <!-- Replace v1.0.0 with plc tag associated to versioning-->
+                <td>:="Retained".array[0].Version:</td>
+            </tr>
+            <tr>
+                <td>GPS Coordinates</td>
+                <td><button type="button" onclick="gpsPUSH()">Upload GPS - Click Here</button></td>
+            </tr>
+            <tr>
+                <td>GPS Coordinates Latitude</td>
+                <!-- Replace 39.002139085 with plc tag associated to latitude-->
+                <td id='lat'>39.002139085</td>
+            </tr>
+            <tr>
+                <td>GPS Coordinates Longitude</td>
+                <!-- Replace 58.2108058202 with plc tag associated to longitude-->
+                <td id='long'>58.2108058202</td>
+            </tr>
+            <tr>
+                <td>Skid Name</td>
+                <td><input type="text" value=':="Retained".array[0].Mail_Info.webFROM:'
+                        name="&quot;Retained&quot;.array[0].Mail_Info.webFROM" style="text-align:right">
+                    @Liquidpower.com
+                </td>
+            <tr>
+                <td>To Address</td>
+                <td><input type="text" value=':="Retained".array[0].Mail_Info.webTO:'
+                        name="&quot;Retained&quot;.array[0].Mail_Info.webTO"></td>
+            </tr>
+            <tr>
+                <td>CC Address</td>
+                <td><input type="text" value=':="Retained".array[0].Mail_Info.webCC:'
+                        name="&quot;Retained&quot;.array[0].Mail_Info.webCC"></td>
+            </tr>
+            <tr>
+                <td>Test Email</td>
+                <td><button type="button" onclick="testEmail()">Test Email - Click Here</button></td>
+            </tr>
+            <tr>
+                <td># of Trains</td>
+                <td><select id="selectTrains" onchange="selectTrains()" style="width:50%">
+                        <option value="single">Single</option>
+                        <option value="dual">Dual</option>
+                    </select></td>
+            </tr>
+            <script>
+                if (':="Retained".array[0].Enable.XF-200.Enable:' == '0') {
+                    $('#selectTrains').val("single");
+                } else {
+                    $('#selectTrains').val("dual");
+                }
+            </script>
+
+            <tr>
+                <td>Communications Method</td>
+                <td><select id="selectTag" onchange="selectComms()" style="width:50%">
+                        <option value="cellular">Cellular</option>
+                        <option value="satellite">Satellite</option>
+                    </select></td>
+            </tr>
+            <script>
+                if (':="Retained".array[0].Enable.transmit_cell:' == '1') {
+                    $('#selectTag').val("cellular");
+                } else {
+                    $('#selectTag').val("satellite");
+                }
+            </script>
+            <tr>
+                <td>ESS Enable</td>
+                <td><select id="selectESS" onchange="myESS()" style="width:50%">
+                        <option value="enabled">Enabled</option>
+                        <option value="disabled">Disabled</option>
+                    </select> <br>Wait 1 minute for Results</td>
+            </tr>
+            <script>
+                if (':="Retained".array[0].ESS.ESS_Enable:' == '1') {
+                    $('#selectESS').val("enabled");
+                } else if (':="Retained".array[0].ESS.ESS_Enable:' == '0') {
+                    $('#selectESS').val("disabled");
+                }
+            </script>
+
+            <!--<tr>
+                <td>test read</td>
+                <td id="mytest">first</td>
+            </tr>
+            <tr>
+                <td>test read2</td>
+                <td id="mytest2">second</td>
+            </tr>-->
+
+        </table>
+    </form>
+
+</div>
+<div class="footer"></div>
+
+<script>
+    "use strict";
+    var plcType;
+    $(document).ready(function () {
+        plcType = "1200";
+        S7Framework.initialize(plcType, "");
+        S7Framework.readData("js/testEmail.json", "init read data", viewValues);
+
+    });
+
+    function viewValues(values) {
+        $('#mytest').text(values[0]);
+        $('#mytest2').text(values[1]);
+        setTimeout(function () {
+            S7Framework.readData("js/testEmail.json", "cyclic read data", viewValues)
+        }, 1000);
+    }
+
+    function testEmail() {
+        //TODO: finish testEmail to toggle plc tag
+        plcType = "1200";
+        S7Framework.initialize(plcType, "");
+        var data = '"Non_Retained".Mail_Info.test' + '=' + "1";
+        S7Framework.writeData("js/testEmail.json", data, "communication to PLC failed");
+        var data = '"Non_Retained".Mail_Info.test' + '=' + "0";
+        S7Framework.writeData("js/testEmail.json", data, "communication to PLC failed");
+        alert('Test Email Sent');
+    }
+
+    function gpsPUSH() {
+        //TODO: finish gpsPUSH to toggle PLC tag.
+        //  this function is designed to trigger a pLC tag which acts as a trigger for the datalog
+        //  telecontrol action to send data for only the GPS coordinates
+        //  this function is required to provide confirmation of button press.
+        //  this function is not responsible for the display of these coordinates on config.html
+        //use s7fw_writing.js to help in completion of this section
+        //plcType = "1200";
+        //S7Framework.initialize(plcType, "");
+        //var data = '"ANALOGS_NORETAIN".sendGPS' + '=' + 1;
+        //S7Framework.writeData("js/testEmail.json", data, "communication to PLC failed");
+        //$('#lat').text('<insert tag here>');
+        //$('#long').text('<insert tag here>');
+        alert('GPS Under Construction');
+    }
+
+    function btnBackup() {
+        //placeholder for receipe save tag toggle
+        plcType = "1200";
+        S7Framework.initialize(plcType, "");
+        var data = '"Non_Retained".Writ_DBL.REQ' + '=' + 1;
+        S7Framework.writeData("js/testEmail.json", data, "communication to PLC failed");
+        alert('Backup complete');
+    }
+
+    function selectComms() {
+        //placeholder for selection of comms tag toggles
+        //alert($('#selectTag').val() + ' selected');
+        plcType = "1200";
+        S7Framework.initialize(plcType, "");
+        if ($("#selectTag").val() == 'cellular') {
+            var data = '"Retained".array[0].Enable.transmit_cell' + '=' + 1;
+        } else {
+            var data = '"Retained".array[0].Enable.transmit_cell' + '=' + 0;
+        }
+        S7Framework.writeData("js/testEmail.json", data, "communication to PLC failed");
+    }
+    function selectTrains() {
+        //placeholder for selection of comms tag toggles
+        //alert($('#selectTag').val() + ' selected');
+        plcType = "1200";
+        S7Framework.initialize(plcType, "");
+        if ($("#selectTrains").val() == 'single') {
+            var data = '"Retained".array[0].Enable.XF-200.Enable' + '=' + 1;
+        } else {
+            var data = '"Retained".array[0].Enable.XF-200.Enable' + '=' + 0;
+        }
+        S7Framework.writeData("js/testEmail.json", data, "communication to PLC failed");
+    }
+
+    function myESS() {
+        plcType = "1200";
+        S7Framework.initialize(plcType, "");
+        if ($("#selectESS").val() == 'enabled') {
+            var data = '"Retained".array[0].ESS.ESS_Enable' + '=' + '1';
+        } else {
+            var data = '"Retained".array[0].ESS.ESS_Enable' + '=' + '0';
+        }
+        S7Framework.writeData("js/testEmail.json", data, "communication to PLC failed");
+    }
+
+    function select_writeS7(selecttag, plctag, str) {
+        //plctag should come in as <"Retained".array[0].ESS.ESS_Enable> without the <>
+        //selecttag is the select ID
+        //str is the select option value
+        plcType = "1200";
+        S7Framework.initialize(plcType, "");
+        if ($("#" + selecttag).val() == str) {
+            var data = "'" + plctag + "'" + '=' + '1';
+        } else {
+            var data = plctag + '=' + '0';
+        }
+        S7Framework.writeData("js/testEmail.json", data, "communication to PLC failed");
+    }
+</script>
+
+</html>
